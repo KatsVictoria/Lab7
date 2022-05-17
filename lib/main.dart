@@ -67,6 +67,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    HttpOverrides.global=MyHttpOverrides();
     const appTitle = 'Лента новойтей КубГАУ';
     return MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -93,7 +94,7 @@ class MyHomePage extends StatelessWidget {
         builder: (context, snapshot) {
           if (snapshot.hasError) {
             return const Center(
-              child: Text('Ошибка запроса'),
+              child: Text('ОШИБКА ЗАПРОСА'),
             );
           } else if (snapshot.hasData) {
             return NewsList(news: snapshot.data!);
